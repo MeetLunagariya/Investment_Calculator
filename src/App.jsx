@@ -8,15 +8,18 @@ const DETAILS = {
   expectedReturn: 10,
   duration: 5,
 }
+
 function App() {
   
   const [details, setDetails] = useState(DETAILS)
+  const isValid = details.duration >= 1 ;
   console.log(details)
 
   return (
     <>
       <InputArea setDetails={setDetails} details={details}/>
-      <Result details={details}/>
+
+      {isValid ? <Result details={details}/> : <p className="center">Please Enter duration greater then 0.</p>}
     </>
   )
 }
